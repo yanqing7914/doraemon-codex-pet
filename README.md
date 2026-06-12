@@ -15,15 +15,21 @@
 
 ## 安装
 
-### 方式一:命令行(Mac / Linux)
+### 方式一:一键安装(Mac / Linux)
 
 ```bash
-git clone https://github.com/yanqing7914/doraemon-codex-pet.git
-mkdir -p ~/.codex/pets/doraemon
-cp doraemon-codex-pet/pet.json doraemon-codex-pet/spritesheet.webp ~/.codex/pets/doraemon/
+curl -fsSL https://raw.githubusercontent.com/yanqing7914/doraemon-codex-pet/main/install.sh | sh
 ```
 
-### 方式二:手动安装(含 Windows)
+### 方式二:命令行手动下载
+
+```bash
+mkdir -p ~/.codex/pets/doraemon
+curl -fsSL -o ~/.codex/pets/doraemon/pet.json https://raw.githubusercontent.com/yanqing7914/doraemon-codex-pet/main/pet.json
+curl -fsSL -o ~/.codex/pets/doraemon/spritesheet.webp https://raw.githubusercontent.com/yanqing7914/doraemon-codex-pet/main/spritesheet.webp
+```
+
+### 方式三:手动安装(含 Windows)
 
 1. 下载本仓库的 `pet.json` 和 `spritesheet.webp` 两个文件
 2. 放到以下目录(没有就新建):
