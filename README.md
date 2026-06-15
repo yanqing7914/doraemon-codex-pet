@@ -2,15 +2,15 @@
 
 一只为 [OpenAI Codex](https://openai.com/codex/) 桌面应用定制的哆啦A梦桌宠。
 
-它会悬浮在屏幕最顶层,实时显示 Codex 的工作状态:**派活后专注思考,干完活起身跳科目三庆祝,翻车了瘫倒在地**。
+它会悬浮在屏幕最顶层,实时显示 Codex 的工作状态:**派活后坐下敲键盘,干完活起身跳科目三庆祝,翻车了瘫倒在地**。
 
-![专注干活](previews/running.gif) ![科目三](previews/waving.gif) ![失败](previews/failed.gif)
+![敲键盘](previews/running.gif) ![科目三](previews/waving.gif) ![失败](previews/failed.gif)
 
 ## 特色
 
 在标准哆啦A梦宠物包的基础上定制了两个动画:
 
-- **专注干活**:Codex 在后台执行任务时,哆啦A梦会摆出思考、查看、认真处理的动作,不再抱着电脑打字。站立帧与工作帧保持同一头身比,切换时不会突然变大
+- **敲键盘干活**:Codex 在后台执行任务时,哆啦A梦坐在小笔记本前打字(原版是原地小跑)。坐姿头身比与站立帧严格对齐,切换时不会突然变大
 - **官方配色校准**:全表主体蓝校准到官方哆啦A梦标准蓝 `#00A0E9`,各状态配色统一
 - **科目三庆祝舞**:任务完成时跳一段抖音科目三——扭胯、踢腿、甩臂画腕(原版是普通挥手)。按官方契约 waving 行为 4 帧,从 8 帧原始动作中抽取关键帧制作
 
@@ -50,7 +50,7 @@ curl -fsSL -o ~/.codex/pets/doraemon/spritesheet.webp https://raw.githubusercont
 | 状态 | 预览 | 触发时机 |
 |---|---|---|
 | 发呆 idle | ![idle](previews/idle.gif) | 没有任务时,呼吸眨眼 |
-| 专注干活 running | ![running](previews/running.gif) | Codex 在后台干活时 |
+| 敲键盘 running | ![running](previews/running.gif) | Codex 在后台干活时 |
 | 检查 review | ![review](previews/review.gif) | Codex 审查代码时 |
 | 等待 waiting | ![waiting](previews/waiting.gif) | 等你批准操作(气泡显示红色时钟) |
 | 跳跃 jumping | ![jumping](previews/jumping.gif) | 需要你做决定时 |
@@ -75,7 +75,7 @@ doraemon-codex-pet/
 ## 制作说明
 
 - 基础形象来自 [Petdex](https://petdex.dev) 社区的 doraemon 宠物包(作者 korkyzer)
-- 专注干活和科目三两行动画为 AI 生成后,经色键抠图、按头宽与基线对齐缩放、碎片清理后合成
+- 敲键盘和科目三两行动画为 AI 生成后,经色键抠图、按头宽与基线对齐缩放、碎片清理后合成
 - 详细 DIY 方法可参考 [openai/skills 的 hatch-pet 技能](https://github.com/openai/skills/blob/main/skills/.curated/hatch-pet/SKILL.md)
 
 ## 版权声明
