@@ -9,12 +9,14 @@ PARENT=$(dirname "$DEST")
 STAGE=""
 BACKUP=""
 COMMITTED=0
+HAD_PET=0
+HAD_SPRITESHEET=0
 
 cleanup() {
   status=$?
   if [ "$COMMITTED" -ne 1 ] && [ -n "$BACKUP" ] && [ -d "$BACKUP" ]; then
-    [ ! -f "$BACKUP/pet.json" ] || cp "$BACKUP/pet.json" "$DEST/pet.json"
-    [ ! -f "$BACKUP/spritesheet.webp" ] || cp "$BACKUP/spritesheet.webp" "$DEST/spritesheet.webp"
+    if [ "$HAD_PET" -eq 1 ]; then cp "$BACKUP/pet.json" "$DEST/pet.json"; else rm -f "$DEST/pet.json"; fi
+    if [ "$HAD_SPRITESHEET" -eq 1 ]; then cp "$BACKUP/spritesheet.webp" "$DEST/spritesheet.webp"; else rm -f "$DEST/spritesheet.webp"; fi
   fi
   [ -z "$STAGE" ] || rm -rf "$STAGE"
   [ -z "$BACKUP" ] || rm -rf "$BACKUP"
@@ -35,8 +37,8 @@ echo "正在校验下载文件..."
 (cd "$STAGE" && shasum -a 256 -c checksums.sha256)
 
 # Preserve the current pair until both verified replacements are installed.
-[ ! -f "$DEST/pet.json" ] || cp "$DEST/pet.json" "$BACKUP/pet.json"
-[ ! -f "$DEST/spritesheet.webp" ] || cp "$DEST/spritesheet.webp" "$BACKUP/spritesheet.webp"
+if [ -f "$DEST/pet.json" ]; then HAD_PET=1; cp "$DEST/pet.json" "$BACKUP/pet.json"; fi
+if [ -f "$DEST/spritesheet.webp" ]; then HAD_SPRITESHEET=1; cp "$DEST/spritesheet.webp" "$BACKUP/spritesheet.webp"; fi
 cp "$STAGE/pet.json" "$DEST/.pet.json.new"
 cp "$STAGE/spritesheet.webp" "$DEST/.spritesheet.webp.new"
 mv "$DEST/.pet.json.new" "$DEST/pet.json"
