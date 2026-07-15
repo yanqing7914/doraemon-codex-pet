@@ -39,11 +39,11 @@ curl -fsSL -o ~/.codex/pets/doraemon/spritesheet.webp https://raw.githubusercont
 
 ### 启用
 
-1. 重启 Codex 桌面应用
+1. 重启 ChatGPT / Codex 桌面应用
 2. 打开 `Settings → Appearance → Pets`,在 Custom pets 里选择 **Doraemon**
 3. 在 Codex 聊天框输入 `/pet` 唤醒
 
-> 注意:桌宠功能只在 Codex 桌面应用中可用,CLI 不支持。
+> 注意:桌宠功能只在带 Codex 工作区的 ChatGPT / Codex 桌面应用中可用,CLI 不支持。
 
 ## 全部动画状态
 
@@ -67,6 +67,8 @@ curl -fsSL -o ~/.codex/pets/doraemon/spritesheet.webp https://raw.githubusercont
 doraemon-codex-pet/
 ├── pet.json           # 宠物元数据:名称、图集网格、各状态行号与帧数
 ├── spritesheet.webp   # 动画图集:1536×1872,8列×9行,单帧192×208,透明背景
+├── checksums.sha256   # 安装下载完整性校验
+├── install.sh         # 校验后原子替换 pet 文件的一键安装脚本
 └── previews/          # 各状态 GIF 预览(仅供展示,安装时不需要)
 ```
 
